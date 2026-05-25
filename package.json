@@ -1,6 +1,6 @@
 {
   "name": "react-native-jupiter-media-kit",
-  "version": "0.3.0",
+  "version": "1.1.0",
   "description": "A modern React Native media library and camera SDK for accessing albums, browsing photos, and capturing images with native performance.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -32,7 +32,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-media-kit-example",
+    "example": "yarn workspace react-native-jupiter-media-kit-example",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
     "typecheck": "tsc",
@@ -49,16 +49,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huchun666/react-native-media-kit.git"
+    "url": "git+https://github.com/huchun666/react-native-jupiter-media-kit.git"
   },
   "author": "chun.hu <huchunharu@163.com> (https://github.com/huchun666)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/huchun666/react-native-media-kit/issues"
+    "url": "https://github.com/huchun666/react-native-jupiter-media-kit/issues"
   },
-  "homepage": "https://github.com/huchun666/react-native-media-kit#readme",
+  "homepage": "https://github.com/huchun666/react-native-jupiter-media-kit#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^20.5.0",
