@@ -1,5 +1,3 @@
-import { TurboModuleRegistry, type TurboModule } from 'react-native';
-
 export type PhotoPermissionStatus =
   | 'granted'
   | 'limited'
@@ -21,6 +19,8 @@ export interface Album {
   type: 'smart' | 'user';
 }
 
+export type MediaType = 'photo' | 'video' | 'all';
+
 export interface Asset {
   id: string;
   uri: string;
@@ -34,9 +34,16 @@ export interface Asset {
 }
 
 export interface AssetPage {
-  assets: ReadonlyArray<Asset>;
+  assets: Asset[];
   hasNextPage: boolean;
   totalCount?: number;
+}
+
+export interface GetAssetsOptions {
+  albumId?: string;
+  mediaType?: MediaType;
+  page: number;
+  pageSize?: number;
 }
 
 export interface CameraResult {
@@ -45,18 +52,3 @@ export interface CameraResult {
   height: number;
   filename?: string;
 }
-
-export interface Spec extends TurboModule {
-  requestPermissions(): Promise<PermissionStatus>;
-  getPermissionStatus(): Promise<PermissionStatus>;
-  getAlbums(): Promise<ReadonlyArray<Album>>;
-  getAssets(
-    albumId: string | null,
-    mediaType: string,
-    page: number,
-    pageSize: number
-  ): Promise<AssetPage>;
-  openCamera(): Promise<CameraResult>;
-}
-
-export default TurboModuleRegistry.getEnforcing<Spec>('MediaKit');
