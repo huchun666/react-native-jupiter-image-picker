@@ -10304,9 +10304,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-jupiter-media-kit-example@workspace:example":
+"react-native-jupiter-image-picker-example@workspace:example":
   version: 0.0.0-use.local
-  resolution: "react-native-jupiter-media-kit-example@workspace:example"
+  resolution: "react-native-jupiter-image-picker-example@workspace:example"
   dependencies:
     "@babel/core": "npm:^7.25.2"
     "@babel/preset-env": "npm:^7.25.3"
@@ -10324,7 +10324,7 @@ __metadata:
     react-dom: "npm:19.2.3"
     react-native: "npm:0.85.0"
     react-native-builder-bob: "npm:^0.41.0"
-    react-native-jupiter-media-kit: "workspace:*"
+    react-native-jupiter-image-picker: "workspace:*"
     react-native-monorepo-config: "npm:^0.3.3"
     react-native-web: "npm:~0.21.1"
     vite: "npm:^7.1.1"
@@ -10332,9 +10332,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react-native-jupiter-media-kit@workspace:*, react-native-jupiter-media-kit@workspace:.":
+"react-native-jupiter-image-picker@workspace:*, react-native-jupiter-image-picker@workspace:.":
   version: 0.0.0-use.local
-  resolution: "react-native-jupiter-media-kit@workspace:."
+  resolution: "react-native-jupiter-image-picker@workspace:."
   dependencies:
     "@commitlint/config-conventional": "npm:^20.5.0"
     "@eslint/compat": "npm:^2.0.3"

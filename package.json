@@ -1,5 +1,5 @@
 {
-  "name": "react-native-jupiter-media-kit",
+  "name": "react-native-jupiter-image-picker",
   "version": "1.1.0",
   "description": "A modern React Native media library and camera SDK for accessing albums, browsing photos, and capturing images with native performance.",
   "main": "./lib/module/index.js",
@@ -32,7 +32,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-jupiter-media-kit-example",
+    "example": "yarn workspace react-native-jupiter-image-picker-example",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
     "typecheck": "tsc",
@@ -49,14 +49,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huchun666/react-native-jupiter-media-kit.git"
+    "url": "git+https://github.com/huchun666/react-native-jupiter-image-picker.git"
   },
   "author": "chun.hu <huchunharu@163.com> (https://github.com/huchun666)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/huchun666/react-native-jupiter-media-kit/issues"
+    "url": "https://github.com/huchun666/react-native-jupiter-image-picker/issues"
   },
-  "homepage": "https://github.com/huchun666/react-native-jupiter-media-kit#readme",
+  "homepage": "https://github.com/huchun666/react-native-jupiter-image-picker#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

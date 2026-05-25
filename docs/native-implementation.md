@@ -1,6 +1,6 @@
-# react-native-jupiter-media-kit 原生实现说明
+# react-native-jupiter-image-picker 原生实现说明
 
-本文档详细讲解 `react-native-jupiter-media-kit` 的原生层实现，涵盖 JavaScript 层、Android（Kotlin）与 iOS（Swift/Objective-C++）两端，并对**每个源码文件中的关键代码**逐段说明其作用。
+本文档详细讲解 `react-native-jupiter-image-picker` 的原生层实现，涵盖 JavaScript 层、Android（Kotlin）与 iOS（Swift/Objective-C++）两端，并对**每个源码文件中的关键代码**逐段说明其作用。
 
 ---
 

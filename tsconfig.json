@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-jupiter-media-kit": ["./src/index"]
+      "react-native-jupiter-image-picker": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

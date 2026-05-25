@@ -21,7 +21,7 @@ import {
   type Asset,
   type CameraResult,
   type PermissionStatus,
-} from 'react-native-jupiter-media-kit';
+} from 'react-native-jupiter-image-picker';
 
 const PAGE_SIZE = 30;
 const COLUMN_COUNT = 3;

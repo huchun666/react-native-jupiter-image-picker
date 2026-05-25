@@ -1,5 +1,5 @@
 {
-  "name": "react-native-jupiter-media-kit-example",
+  "name": "react-native-jupiter-image-picker-example",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -15,7 +15,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.85.0",
-    "react-native-jupiter-media-kit": "workspace:*",
+    "react-native-jupiter-image-picker": "workspace:*",
     "react-native-web": "~0.21.1"
   },
   "devDependencies": {

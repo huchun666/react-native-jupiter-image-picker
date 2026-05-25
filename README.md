@@ -1,4 +1,4 @@
-# react-native-jupiter-media-kit
+# react-native-jupiter-image-picker
 
 A React Native Turbo Module for accessing the photo library, browsing albums and assets, and capturing photos with the native camera.
 
@@ -19,9 +19,9 @@ A React Native Turbo Module for accessing the photo library, browsing albums and
 ## Installation
 
 ```sh
-npm install react-native-jupiter-media-kit
+npm install react-native-jupiter-image-picker
 # or
-yarn add react-native-jupiter-media-kit
+yarn add react-native-jupiter-image-picker
 ```
 
 ### iOS
@@ -54,7 +54,7 @@ import {
   getPermissionStatus,
   openCamera,
   requestPermissions,
-} from 'react-native-jupiter-media-kit';
+} from 'react-native-jupiter-image-picker';
 
 // Permissions
 const status = await requestPermissions();
