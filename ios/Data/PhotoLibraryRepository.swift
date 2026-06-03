@@ -56,9 +56,7 @@ final class PhotoLibraryRepository {
   }
 
   private func fetchAssets(albumId: String?, mediaType: String) throws -> PHFetchResult<PHAsset> {
-    let options = PHFetchOptions()
-    options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-    options.predicate = buildPredicate(for: mediaType)
+    let options = buildFetchOptions(for: mediaType)
 
     if let albumId, !albumId.isEmpty {
       let collections = PHAssetCollection.fetchAssetCollections(
@@ -72,6 +70,13 @@ final class PhotoLibraryRepository {
     }
 
     return PHAsset.fetchAssets(with: options)
+  }
+
+  private func buildFetchOptions(for mediaType: String) -> PHFetchOptions {
+    let options = PHFetchOptions()
+    options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+    options.predicate = buildPredicate(for: mediaType)
+    return options
   }
 
   private func buildPredicate(for mediaType: String) -> NSPredicate? {
@@ -94,9 +99,10 @@ final class PhotoLibraryRepository {
     type: String
   ) -> [AlbumDTO] {
     var albums: [AlbumDTO] = []
+    let photoOptions = buildFetchOptions(for: "photo")
 
     collections.enumerateObjects { collection, _, _ in
-      let assets = PHAsset.fetchAssets(in: collection, options: nil)
+      let assets = PHAsset.fetchAssets(in: collection, options: photoOptions)
       guard assets.count > 0 else {
         return
       }

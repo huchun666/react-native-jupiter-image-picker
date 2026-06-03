@@ -1,6 +1,6 @@
 {
   "name": "react-native-jupiter-image-picker",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A modern React Native media library and camera SDK for accessing albums, browsing photos, and capturing images with native performance.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
