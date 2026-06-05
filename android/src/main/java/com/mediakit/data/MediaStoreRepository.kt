@@ -16,36 +16,43 @@ class MediaStoreRepository(
 ) {
   fun getAlbums(): List<AlbumDto> {
     val albums = linkedMapOf<String, AlbumDto>()
+    // 查 所有图片
     val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
     val projection =
       arrayOf(
-        MediaStore.Images.Media.BUCKET_ID,
-        MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
-        MediaStore.Images.Media._ID,
-        MediaStore.Images.Media.DATE_ADDED,
+        MediaStore.Images.Media.BUCKET_ID, // 相册ID
+        MediaStore.Images.Media.BUCKET_DISPLAY_NAME, // 相册名称
+        MediaStore.Images.Media._ID, // 图片ID
+        MediaStore.Images.Media.DATE_ADDED,// 图片创建时间
       )
+    // 按相册ID升序，图片创建时间降序
     val sortOrder =
       "${MediaStore.Images.Media.BUCKET_ID} ASC, ${MediaStore.Images.Media.DATE_ADDED} DESC"
 
+    // use 自动关闭 cursor（避免内存泄漏）
     query(uri, projection, null, null, sortOrder).use { cursor ->
       if (cursor == null) {
         return emptyList()
       }
 
+      // 提前缓存列 index，提高性能
       val bucketIdColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_ID)
       val bucketNameColumn =
         cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
       val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
 
+      // 遍历每一行图片
       while (cursor.moveToNext()) {
         val bucketId = cursor.getString(bucketIdColumn) ?: continue
         val existing = albums[bucketId]
+        // 如果相册已存在，则累加计数
         if (existing != null) {
           albums[bucketId] = existing.copy(assetCount = existing.assetCount + 1)
           continue
         }
 
         val coverId = cursor.getLong(idColumn)
+        // 构造一个相册对象（AlbumDto）
         albums[bucketId] =
           AlbumDto(
             id = bucketId,
@@ -67,8 +74,10 @@ class MediaStoreRepository(
     page: Int,
     pageSize: Int,
   ): AssetPageDto {
+    debugger()
     val safePage = page.coerceAtLeast(0)
     val safePageSize = pageSize.coerceIn(1, MAX_PAGE_SIZE)
+    // 根据类型选表
     val uri = resolveMediaUri(mediaType)
     val bucketColumn = resolveBucketColumn(mediaType)
     val projection =
@@ -225,11 +234,11 @@ class MediaStoreRepository(
   }
 
   private fun query(
-    uri: Uri,
-    projection: Array<String>,
-    selection: String?,
-    selectionArgs: Array<String>?,
-    sortOrder: String?,
+    uri: Uri, // 查哪张表
+    projection: Array<String>, // 查哪些字段
+    selection: String?, // 查哪些条件
+    selectionArgs: Array<String>?, // 查哪些条件值
+    sortOrder: String?, // 排序方式
   ): Cursor? {
     return contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
   }
