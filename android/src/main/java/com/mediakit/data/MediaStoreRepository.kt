@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import com.mediakit.model.AlbumDto
 import com.mediakit.model.AssetDto
 import com.mediakit.model.AssetPageDto
+import android.util.Log
 
 class MediaStoreRepository(
   private val contentResolver: ContentResolver,
@@ -64,6 +65,7 @@ class MediaStoreRepository(
           )
       }
     }
+    Log.d("MediaStoreRepository", "getAssets: albumId: $albums.values")
 
     return albums.values.sortedBy { it.title.lowercase() }
   }
@@ -74,7 +76,7 @@ class MediaStoreRepository(
     page: Int,
     pageSize: Int,
   ): AssetPageDto {
-    debugger()
+    Log.d("MediaStoreRepository", "getAssets: albumId: $albumId, mediaType: $mediaType, page: $page, pageSize: $pageSize")
     val safePage = page.coerceAtLeast(0)
     val safePageSize = pageSize.coerceIn(1, MAX_PAGE_SIZE)
     // 根据类型选表

@@ -34,6 +34,7 @@ class AlbumService(
     return toAssetPageMap(pageResult)
   }
 
+  // 把 Kotlin 对象转成 JS 对象
   private fun toAlbumMap(album: AlbumDto): WritableMap {
     return Arguments.createMap().apply {
       putString("id", album.id)

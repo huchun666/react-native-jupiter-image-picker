@@ -6,6 +6,7 @@ buildscript {
     targetSdkVersion: 36
   ]
 
+  // 优先用宿主配置的版本，没有则用 MediaKit 的版本
   ext.getExtOrDefault = { prop ->
     if (rootProject.ext.has(prop)) {
       return rootProject.ext.get(prop)
@@ -14,11 +15,13 @@ buildscript {
     return MediaKit[prop]
   }
 
+  // 插件来源
   repositories {
     google()
     mavenCentral()
   }
 
+  // 构建插件
   dependencies {
     classpath "com.android.tools.build:gradle:8.7.2"
     // noinspection DifferentKotlinGradleVersion
@@ -26,7 +29,7 @@ buildscript {
   }
 }
 
-
+// 应用插件（真正开始构建模块）
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 
